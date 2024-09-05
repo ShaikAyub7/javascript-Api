@@ -6,11 +6,15 @@ const product_conatiner = document.querySelector(".products-container");
 const product_conatiner_book = document.querySelector(
   ".products-container-books"
 );
+
+const product_conatiner_beauty = document.querySelector(
+  ".products-container-beauty"
+);
 const img = document.querySelector(".img");
 const body = document.querySelector(".main");
 
 let index = 1;
-const max = 5;
+const max = 3;
 
 console.log(header_img.src);
 btn_right.addEventListener("click", function () {
@@ -19,7 +23,7 @@ btn_right.addEventListener("click", function () {
   } else {
     index = 1;
   }
-  header_img.src = `img/image-${index}.jpg`;
+  header_img.src = `img/image--${index}.jpeg`;
   console.log(header_img.src);
 });
 btn_left.addEventListener("click", function () {
@@ -28,21 +32,30 @@ btn_left.addEventListener("click", function () {
   } else {
     index = max;
   }
-  header_img.src = `img/image-${index}.jpg`;
+  header_img.src = `img/image--${index}.jpeg`;
   console.log(header_img.src);
 });
 
 const url1 = fetch("https://fakestoreapi.com/products");
 const url2 = fetch("https://www.dbooks.org/api/recent");
+const url3 = fetch("https://dummyjson.com/products");
 
 const apiFunction = async function () {
   try {
-    const [response1, response2] = await Promise.all([url1, url2]);
+    const [response1, response2, response3] = await Promise.all([
+      url1,
+      url2,
+      url3,
+    ]);
     const data = await response1.json();
     const data2 = await response2.json();
-    const data3 = data2.books;
+    const data3 = await response3.json();
+    const allBooks = data2.books;
+    const allProducts = data3.products;
+    // console.log(data3.products);
     data.forEach((products) => products_container(products));
-    data3.forEach((books) => products_container_books(books));
+    allBooks.forEach((books) => products_container_books(books));
+    allProducts.forEach((beauty) => products_container_beauty(beauty));
 
     setTimeout(() => {
       body.style.opacity = 1;
@@ -54,7 +67,6 @@ const apiFunction = async function () {
   }
 };
 apiFunction();
-// window.addEventListener("load", apiFunction);
 
 function products_container(product) {
   const html = `
@@ -78,4 +90,20 @@ function products_container_books(book) {
     </div>`;
 
   product_conatiner_book.insertAdjacentHTML("afterbegin", html);
+}
+
+function products_container_beauty(beauty) {
+  const html = `
+    <div class="product-card">
+      <img src="${beauty.images}" alt="${beauty.title}"  loading="lazy">
+     <h3 class="price">${beauty.title}</h3>
+      <p>${beauty.warrantyInformation}</p>
+      <p>Weight : ${beauty.weight}kg</p>
+      <p><strong>category</strong>: ${beauty.category}</p>
+      <p><strong>availabilityStatus
+</strong>: ${beauty.availabilityStatus}</p>
+   <p class="price">Price: $${beauty.price}</p>
+    </div>`;
+
+  product_conatiner_beauty.insertAdjacentHTML("afterbegin", html);
 }

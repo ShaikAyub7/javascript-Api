@@ -117,6 +117,15 @@ a {
   gap: 40px;
   justify-content: center;
 }
+.products-container-beauty {
+  display: flex;
+  flex-wrap: wrap;
+  height: 750px;
+  max-height: 70%;
+  overflow-y: scroll;
+  gap: 40px;
+  justify-content: center;
+}
 .product-grid {
   display: flex;
   flex-wrap: wrap;
@@ -198,4 +207,10 @@ a {
   align-items: center;
   gap: 10px;
   font-weight: 600;
+}
+.section--hidden {
+  display: none;
+}
+.beauty-products {
+  margin-bottom: 10%;
 }
