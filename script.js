@@ -39,12 +39,12 @@ const apiFunction = async function () {
   setTimeout(() => {
     body.style.opacity = 1;
     img.style.opacity = 0;
-  }, 2000);
+  }, 1000);
 
   data.forEach((products) => products_container(products));
 };
 apiFunction();
-window.addEventListener("load", apiFunction);
+// window.addEventListener("load", apiFunction);
 
 function products_container(product) {
   const html = `

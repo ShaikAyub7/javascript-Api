@@ -161,10 +161,14 @@ a {
   margin-bottom: 10%;
 }
 .img {
+  height: 50px;
+  width: 50px;
   position: fixed;
   z-index: 9999;
-  top: 35%;
-  left: 45%;
+  top: 45%;
+  bottom: 50%;
+  left: 50%;
+  right: 50%;
 }
 .footer {
   background-color: #333;
