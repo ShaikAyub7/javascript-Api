@@ -2,12 +2,14 @@
   box-sizing: border-box;
   margin: 0;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-decoration: none;
   list-style: none;
-  scroll-behavior: smooth;
 }
 a {
   text-decoration: none;
@@ -96,18 +98,13 @@ a {
   margin-bottom: 3%;
   margin-top: 3%;
 }
-.products-container::-webkit-scrollbar {
-  display: none;
-}
-.products-container-books::-webkit-scrollbar {
-  display: none;
-}
+
 .products-container {
   display: flex;
   flex-wrap: wrap;
   height: 650px;
   max-height: 70%;
-  overflow: scroll;
+  overflow-y: scroll;
   gap: 40px;
   justify-content: center;
 }
@@ -116,7 +113,7 @@ a {
   flex-wrap: wrap;
   height: 750px;
   max-height: 70%;
-  overflow: scroll;
+  overflow-y: scroll;
   gap: 40px;
   justify-content: center;
 }
