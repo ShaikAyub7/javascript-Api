@@ -76,7 +76,7 @@ a {
   position: absolute;
   background: white;
   right: 10%;
-  top: 30%;
+  top: 35%;
   /* bottom: 45%; */
 }
 .btn-left {
@@ -86,7 +86,7 @@ a {
 
   position: absolute;
   left: 10%;
-  top: 30%;
+  top: 35%;
   /* bottom: 45%; */
 }
 .products {
@@ -191,4 +191,11 @@ a {
 }
 .footer-img-container p {
   margin-top: 20px;
+}
+.nav-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
 }

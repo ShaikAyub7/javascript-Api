@@ -32,55 +32,49 @@ btn_left.addEventListener("click", function () {
   console.log(header_img.src);
 });
 
+const url1 = fetch("https://fakestoreapi.com/products");
+const url2 = fetch("https://www.dbooks.org/api/recent");
+
 const apiFunction = async function () {
-  const response = await fetch("https://fakestoreapi.com/products");
+  try {
+    const [response1, response2] = await Promise.all([url1, url2]);
+    const data = await response1.json();
+    const data2 = await response2.json();
+    const data3 = data2.books;
+    data.forEach((products) => products_container(products));
+    data3.forEach((books) => products_container_books(books));
 
-  const data = await response.json();
-  setTimeout(() => {
-    body.style.opacity = 1;
-    img.style.opacity = 0;
-  }, 1000);
-
-  data.forEach((products) => products_container(products));
+    setTimeout(() => {
+      body.style.opacity = 1;
+      img.style.opacity = 0;
+    }, 1000);
+  } catch (error) {
+    alert(error);
+    console.error(error);
+  }
 };
 apiFunction();
 // window.addEventListener("load", apiFunction);
 
 function products_container(product) {
   const html = `
-  
     <div class="product-card">
       <img src="${product.image}" alt="${product.title}">
       <h2>${product.title}</h2>
       <p>Category: ${product.category}</p>
       <p class="price">Price: $${product.price}</p>
-
     </div>
     `;
-
   product_conatiner.insertAdjacentHTML("afterbegin", html);
 }
-const booksApi = async function () {
-  const response = await fetch("https://www.dbooks.org/api/recent");
-
-  const data = await response.json();
-  console.log(data);
-  const allData = data.books;
-
-  allData.forEach((products) => products_container_books(products));
-};
-booksApi();
 
 function products_container_books(book) {
   const html = `
-  
     <div class="product-card">
       <img src="${book.image}" alt="${book.title}"  loading="lazy">
       <h2>${book.title}</h2>
       <small>${book.subtitle}</small>
       <p><strong>Author</strong>: ${book.authors}</p>
-  
-
     </div>`;
 
   product_conatiner_book.insertAdjacentHTML("afterbegin", html);
