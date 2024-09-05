@@ -62,10 +62,10 @@ const apiFunction = async function () {
     allBooks.forEach((books) => products_container_books(books));
     allProducts.forEach((beauty) => products_container_beauty(beauty));
 
-    // setTimeout(() => {
-    //   body.style.opacity = 1;
-    //   img.style.opacity = 0;
-    // }, 1000);
+    setTimeout(() => {
+      body.style.opacity = 1;
+      img.style.opacity = 0;
+    }, 1000);
   } catch (error) {
     alert(error);
     console.error(error);
