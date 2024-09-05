@@ -15,16 +15,29 @@ a {
   text-decoration: none;
   color: black;
 }
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+.dark-mode {
+  color: white;
+}
+.dark-btn {
+  background: none;
+  margin-top: 3px;
+  font-size: 16px;
+  border: none;
+}
 .nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #eff8ef;
+  background-color: white;
   width: 100%;
-  z-index: 9999;
+  z-index: 999;
   gap: 20%;
   position: fixed;
-
+  color: black;
   border-bottom: 1px solid grey;
 
   height: 50px;
@@ -44,7 +57,7 @@ a {
 .nav-items li {
   display: flex;
   padding: 20px;
-  justify-content: end;
+  justify-content: space-around;
   cursor: pointer;
 }
 .main {
@@ -56,15 +69,15 @@ a {
 
 .header-img-container {
   max-width: 100%;
-  max-height: 80%;
+  max-height: 70%;
 }
 .header-img {
   max-width: 100%;
   max-height: 60%;
   width: 100%;
-  height: 600px;
+  height: 500px;
   object-fit: cover;
-  max-height: 30%;
+  max-height: 50%;
 }
 .header {
   margin-top: 50px;

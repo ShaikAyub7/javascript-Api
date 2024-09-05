@@ -2,16 +2,21 @@
 const header_img = document.querySelector(".header-img");
 const btn_right = document.querySelector(".btn-right");
 const btn_left = document.querySelector(".btn-left");
+// const li = document.querySelector(".li");
+const nav = document.querySelector("navbar");
+const main = document.querySelector("body");
 const product_conatiner = document.querySelector(".products-container");
 const product_conatiner_book = document.querySelector(
   ".products-container-books"
 );
-
 const product_conatiner_beauty = document.querySelector(
   ".products-container-beauty"
 );
+const darkBtn = document.querySelector(".dark-btn");
+
 const img = document.querySelector(".img");
 const body = document.querySelector(".main");
+const section = document.querySelectorAll(".section");
 
 let index = 1;
 const max = 3;
@@ -70,7 +75,7 @@ apiFunction();
 
 function products_container(product) {
   const html = `
-    <div class="product-card">
+    <div class="product-card card">
       <img src="${product.image}" alt="${product.title}">
       <h2>${product.title}</h2>
       <p>Category: ${product.category}</p>
@@ -82,7 +87,7 @@ function products_container(product) {
 
 function products_container_books(book) {
   const html = `
-    <div class="product-card">
+    <div class="product-card card">
       <img src="${book.image}" alt="${book.title}"  loading="lazy">
       <h2>${book.title}</h2>
       <small>${book.subtitle}</small>
@@ -94,7 +99,7 @@ function products_container_books(book) {
 
 function products_container_beauty(beauty) {
   const html = `
-    <div class="product-card">
+    <div class="product-card card">
       <img src="${beauty.images}" alt="${beauty.title}"  loading="lazy">
      <h3 class="price">${beauty.title}</h3>
       <p>${beauty.warrantyInformation}</p>
@@ -107,3 +112,16 @@ function products_container_beauty(beauty) {
 
   product_conatiner_beauty.insertAdjacentHTML("afterbegin", html);
 }
+
+darkBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  section.forEach((sec) => {
+    sec.classList.toggle("dark-mode");
+  });
+
+  main.classList.toggle("dark-mode");
+  // li.classList.toggle("dark-mode");
+  nav.classList.toggle("dark-mode");
+
+  console.log(sec);
+});
