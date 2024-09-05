@@ -3,7 +3,7 @@ const header_img = document.querySelector(".header-img");
 const btn_right = document.querySelector(".btn-right");
 const btn_left = document.querySelector(".btn-left");
 // const li = document.querySelector(".li");
-const nav = document.querySelector("navbar");
+const nav = document.querySelector(".navbar");
 const main = document.querySelector("body");
 const product_conatiner = document.querySelector(".products-container");
 const product_conatiner_book = document.querySelector(
@@ -62,10 +62,10 @@ const apiFunction = async function () {
     allBooks.forEach((books) => products_container_books(books));
     allProducts.forEach((beauty) => products_container_beauty(beauty));
 
-    setTimeout(() => {
-      body.style.opacity = 1;
-      img.style.opacity = 0;
-    }, 1000);
+    // setTimeout(() => {
+    //   body.style.opacity = 1;
+    //   img.style.opacity = 0;
+    // }, 1000);
   } catch (error) {
     alert(error);
     console.error(error);
@@ -114,13 +114,10 @@ function products_container_beauty(beauty) {
 }
 
 darkBtn.addEventListener("click", function (e) {
-  e.preventDefault();
   section.forEach((sec) => {
     sec.classList.toggle("dark-mode");
   });
-
   main.classList.toggle("dark-mode");
-  // li.classList.toggle("dark-mode");
   nav.classList.toggle("dark-mode");
 
   console.log(sec);
