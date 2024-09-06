@@ -2,29 +2,28 @@
 const header_img = document.querySelector(".header-img");
 const btn_right = document.querySelector(".btn-right");
 const btn_left = document.querySelector(".btn-left");
-// const li = document.querySelector(".li");
 const nav = document.querySelector(".navbar");
 const main = document.querySelector("body");
 const product_conatiner = document.querySelector(".products-container");
-const product_conatiner_book = document.querySelector(
-  ".products-container-books"
-);
-
 const menuBarBtn = document.querySelector(".menu-bar-btn");
-const product_conatiner_beauty = document.querySelector(
-  ".products-container-beauty"
-);
 const darkBtn = document.querySelectorAll(".dark-btn");
 const menuBar = document.querySelector(".menu-bar");
 const liItems = document.querySelectorAll(".li-item");
 const img = document.querySelector(".img");
 const body = document.querySelector(".main");
 const section = document.querySelectorAll(".section");
+const loadingText = document.querySelectorAll(".loading-text");
+
+const product_conatiner_book = document.querySelector(
+  ".products-container-books"
+);
+const product_conatiner_beauty = document.querySelector(
+  ".products-container-beauty"
+);
 
 let index = 1;
 const max = 3;
 
-console.log(header_img.src);
 btn_right.addEventListener("click", function () {
   if (index < max) {
     index++;
@@ -60,7 +59,6 @@ const apiFunction = async function () {
     const data3 = await response3.json();
     const allBooks = data2.books;
     const allProducts = data3.products;
-    // console.log(data3.products);
     // data.forEach((products) => products_container(products));
     allBooks.forEach((books) => products_container_books(books));
     allProducts.forEach((beauty) => products_container_beauty(beauty));
@@ -124,8 +122,6 @@ darkBtn.forEach((e) => {
     main.classList.toggle("dark-mode");
     nav.classList.toggle("dark-mode");
     menuBar.classList.toggle("dark-mode");
-
-    console.log(sec);
   });
 });
 

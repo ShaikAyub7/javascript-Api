@@ -14,7 +14,10 @@
     />
   </head>
   <body>
-    <img src="./img/loading.gif" alt="" class="img" />
+    <div class="img">
+      <img src="./img/loading.gif" alt="" class="loading-img" />
+      <p class="loading-text">Please&nbsp;wait...</p>
+    </div>
     <nav class="nav navbar section">
       <div class="logo-img-container nav-img-container">
         <img src="img/box.png" alt="log img" class="logo-img" />
@@ -46,7 +49,12 @@
     <div class="main">
       <section class="header section">
         <div class="header-img-container">
-          <img src="img/image--2.jpeg" alt="" class="header-img" />
+          <img
+            src="img/image--2.jpeg"
+            alt=""
+            class="header-img"
+            loading="lazy"
+          />
         </div>
         <button class="btn-left">
           <i class="fa-solid fa-arrow-left" style="color: #000000"></i>
