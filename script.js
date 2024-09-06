@@ -41,24 +41,24 @@ btn_left.addEventListener("click", function () {
   console.log(header_img.src);
 });
 
-const url1 = fetch("https://fakestoreapi.com/products");
+// const url1 = fetch("https://fakestoreapi.com/products");
 const url2 = fetch("https://www.dbooks.org/api/recent");
 const url3 = fetch("https://dummyjson.com/products");
 
 const apiFunction = async function () {
   try {
-    const [response1, response2, response3] = await Promise.all([
-      url1,
+    const [response2, response3] = await Promise.all([
+      // url1,
       url2,
       url3,
     ]);
-    const data = await response1.json();
+    // const data = await response1.json();
     const data2 = await response2.json();
     const data3 = await response3.json();
     const allBooks = data2.books;
     const allProducts = data3.products;
     // console.log(data3.products);
-    data.forEach((products) => products_container(products));
+    // data.forEach((products) => products_container(products));
     allBooks.forEach((books) => products_container_books(books));
     allProducts.forEach((beauty) => products_container_beauty(beauty));
 

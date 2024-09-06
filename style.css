@@ -121,6 +121,10 @@ a {
   gap: 40px;
   justify-content: center;
 }
+.products-container::-webkit-scrollbar {
+  background-color: none;
+  color: red;
+}
 .products-container-books {
   display: flex;
   flex-wrap: wrap;
