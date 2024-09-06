@@ -9,10 +9,13 @@ const product_conatiner = document.querySelector(".products-container");
 const product_conatiner_book = document.querySelector(
   ".products-container-books"
 );
+
+const menuBarBtn = document.querySelector(".menu-bar-btn");
 const product_conatiner_beauty = document.querySelector(
   ".products-container-beauty"
 );
-const darkBtn = document.querySelector(".dark-btn");
+const darkBtn = document.querySelectorAll(".dark-btn");
+const menuBar = document.querySelector(".menu-bar");
 
 const img = document.querySelector(".img");
 const body = document.querySelector(".main");
@@ -100,25 +103,33 @@ function products_container_books(book) {
 function products_container_beauty(beauty) {
   const html = `
     <div class="product-card card">
-      <img src="${beauty.images}" alt="${beauty.title}"  loading="lazy">
-     <h3 class="price">${beauty.title}</h3>
-      <p>${beauty.warrantyInformation}</p>
-      <p>Weight : ${beauty.weight}kg</p>
-      <p><strong>category</strong>: ${beauty.category}</p>
-      <p><strong>availabilityStatus
+      <img src="${beauty.images}" alt="${beauty.title}"  loading="lazy" class='card-img'>
+     <h3 class="price card-text">${beauty.title}</h3>
+      <p class="card-text">${beauty.warrantyInformation}</p>
+      <p class="card-text">Weight : ${beauty.weight}kg</p>
+      <p class="card-text"><strong>category</strong>: ${beauty.category}</p>
+      <p class="card-text"><strong>availabilityStatus
 </strong>: ${beauty.availabilityStatus}</p>
-   <p class="price">Price: $${beauty.price}</p>
+   <p class="price card-text">Price: $${beauty.price}</p>
     </div>`;
 
   product_conatiner_beauty.insertAdjacentHTML("afterbegin", html);
 }
 
-darkBtn.addEventListener("click", function (e) {
-  section.forEach((sec) => {
-    sec.classList.toggle("dark-mode");
-  });
-  main.classList.toggle("dark-mode");
-  nav.classList.toggle("dark-mode");
+darkBtn.forEach((e) => {
+  e.addEventListener("click", function (e) {
+    section.forEach((sec) => {
+      sec.classList.toggle("dark-mode");
+    });
+    main.classList.toggle("dark-mode");
+    nav.classList.toggle("dark-mode");
+    menuBar.classList.toggle("dark-mode");
 
-  console.log(sec);
+    console.log(sec);
+  });
+});
+
+menuBarBtn.addEventListener("click", function () {
+  menuBar.classList.toggle("hidden");
+  menuBar.style.visibility = "visible";
 });
