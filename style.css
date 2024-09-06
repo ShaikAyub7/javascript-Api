@@ -480,6 +480,7 @@ a {
   /* display: block; */
   left: 0;
   top: 50px;
+  transition: all 10s ease-in-out;
   bottom: 0;
 }
 .menu-bar-items {

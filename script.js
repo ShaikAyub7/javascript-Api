@@ -16,7 +16,7 @@ const product_conatiner_beauty = document.querySelector(
 );
 const darkBtn = document.querySelectorAll(".dark-btn");
 const menuBar = document.querySelector(".menu-bar");
-
+const liItems = document.querySelectorAll(".li-item");
 const img = document.querySelector(".img");
 const body = document.querySelector(".main");
 const section = document.querySelectorAll(".section");
@@ -132,4 +132,11 @@ darkBtn.forEach((e) => {
 menuBarBtn.addEventListener("click", function () {
   menuBar.classList.toggle("hidden");
   menuBar.style.visibility = "visible";
+  liItems.forEach((li) => {
+    li.addEventListener("click", function () {
+      setTimeout(() => {
+        menuBar.classList.add("hidden");
+      }, 500);
+    });
+  });
 });
