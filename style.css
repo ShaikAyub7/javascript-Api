@@ -400,8 +400,8 @@ a {
     overflow: scroll;
   }
   .card img {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 150px;
     object-fit: cover;
   }
   .card p {
